@@ -5,12 +5,15 @@ import os
 import pandas as pd
 import psycopg2
 import pytest
-from main import app
+
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 app = Flask(__name__)
 
 #connection to the database postgresql
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:qARzCDHuNXgdgBuahnzqXpJFSsSLQxyL@interchange.proxy.rlwy.net:44382/railway'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
