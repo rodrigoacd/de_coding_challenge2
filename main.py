@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import psycopg2
 import pytest
-from app import app
+from main import app
 
 app = Flask(__name__)
 
